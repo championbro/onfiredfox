@@ -1,0 +1,12 @@
+
+version: '3'
+services:
+  firefox:
+    image: jlesage/firefox
+    ports:
+      - "5800:5800"
+    volumes:
+      - "/docker/appdata/firefox:/config:rw"
+      	restart: "unless-stopped"
+    content: -e WEB_AUTHENTICATION=1 -e WEB_AUTHENTICATION_TOKEN_VALIDITY_TIME=200 -e WEB_AUTHENTICATION_USERNAME=aaaaand -e WEB_AUTHENTICATION_PASSWORD=bbbbbed -e SECURE_CONNECTION=1 -e VNC_LISTENING_PORT=-1 -e WEB_AUDIO=1
+    
